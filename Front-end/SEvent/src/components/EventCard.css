@@ -1,0 +1,128 @@
+.event-card {
+  width: 360px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+}
+
+/* Banner */
+.event-card__banner-wrapper {
+  position: relative;
+  height: 170px;
+  background: #0f559f; /* fallback if no image */
+}
+
+.event-card__banner {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Campus pill (UIT) */
+.event-card__chip-campus {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #1b1b1f;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* Star button (top-right) */
+.event-card__star-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* Category label (Academic) */
+.event-card__chip-category {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background: #ffd54f;
+  color: #333333;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* Content */
+.event-card__content {
+  display: flex;
+  padding: 14px 16px 16px;
+}
+
+/* Date block */
+.event-card__date {
+  text-align: center;
+  margin-right: 14px;
+  min-width: 52px;
+}
+
+.event-card__date-month {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  color: #6366f1;
+  letter-spacing: 1px;
+}
+
+.event-card__date-day {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  color: #111827;
+}
+
+/* Info text */
+.event-card__info {
+  flex: 1;
+}
+
+.event-card__title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.event-card__department {
+  margin: 4px 0;
+  font-size: 13px;
+  color: #4b5563;
+}
+
+.event-card__time {
+  margin: 4px 0;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.event-card__interested {
+  margin: 6px 0 0;
+  font-size: 12px;
+  color: #4b5563;
+}
+
+.event-card__interested-star {
+  color: #6366f1;
+}
