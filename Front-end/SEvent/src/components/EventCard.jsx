@@ -1,47 +1,20 @@
 import React from "react";
-import "./Navbar.css";
-// Cách 1: nếu logo nằm trong src/assets
-import logo from "../assets/logo_white.png";
+import "./EventCard.css";
 
-const Navbar = () => {
+function EventCard({ image, title, date, location, description, onClick }) {
   return (
-    <header className="nav">
-      <div className="nav__inner">
-        {/* Logo + tên web */}
-        <div className="nav__logo">
-          {/* Cách 1: nếu dùng import ở trên */}
-          <img src={logo} alt="Sevent logo" className="nav__logo-img" /> */
-          <span className="nav__logo-main">Sevent</span>
-        </div>
-
-        {/* Center links */}
-        <nav className="nav__links">
-          <a href="#home" className="nav__link nav__link--active">
-            Home
-          </a>
-          <a href="#events" className="nav__link">
-            Events
-          </a>
-          <a href="#about" className="nav__link">
-            About
-          </a>
-          <a href="#contact" className="nav__link">
-            Contact
-          </a>
-        </nav>
-
-        {/* Right side: Login + Sign Up */}
-        <div className="nav__auth">
-          <button className="nav__login" type="button">
-            Login
-          </button>
-          <button className="nav__signup" type="button">
-            Sign Up
-          </button>
-        </div>
+    <div className="event-card" onClick={onClick}>
+      <div className="event-card__image-wrapper">
+        <img src={image} alt={title} className="event-card__image" />
       </div>
-    </header>
+      <div className="event-card__body">
+        <h3 className="event-card__title">{title}</h3>
+        <p className="event-card__date">{date}</p>
+        <p className="event-card__location">{location}</p>
+        <p className="event-card__description">{description}</p>
+      </div>
+    </div>
   );
-};
+}
 
-export default Navbar;
+export default EventCard;

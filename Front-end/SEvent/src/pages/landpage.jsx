@@ -1,57 +1,75 @@
-import React from 'react';
-import './landpage.css'; // Import the CSS for the landpage styling
+import React from "react";
 
-const Landpage = () => {
+// Components
+import Navbar from "../components/Navbar.jsx";
+import Banner from "../components/Banner.jsx";
+import EventCard from "../components/EventCard.jsx";
+import Footer from "../components/Footer.jsx";
+
+// CSS (DO NOT assign variable names)
+import "../components/Navbar.css";
+import "../components/Banner.css";
+import "../components/EventCard.css";
+import "../components/Footer.css";
+
+import "./landpage.css";
+
+const dummyEvents = [
+  {
+    id: 1,
+    image: "https://via.placeholder.com/400x200",
+    title: "Music Festival 2025",
+    date: "2025-12-10",
+    location: "Ho Chi Minh City",
+    description: "Join us for a huge celebration of music and community."
+  },
+  {
+    id: 2,
+    image: "https://via.placeholder.com/400x200",
+    title: "Tech Conference",
+    date: "2025-11-20",
+    location: "Hanoi",
+    description: "Innovations, networking, and insights into the future."
+  },
+  // ... more event objects
+];
+
+function LandingPage() {
   return (
-    <div className="landpage">
-      <header className="landpage-header">
-        <div className="landpage-logo">
-          <img src="/path/to/logo.png" alt="Logo" className="landpage-logo-img" />
-          <span className="landpage-logo-text">SEvent</span>
-        </div>
-        <nav className="landpage-nav">
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Events</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-        </nav>
-        <div className="landpage-buttons">
-          <button className="landpage-login-btn">Login</button>
-          <button className="landpage-signup-btn">Sign Up</button>
-        </div>
-      </header>
+    <div className="landing-page">
+      <Navbar />
+      <Banner
+        title="Welcome to S-Event"
+        subtitle="Discover and join amazing events near you."
+        imageUrl="https://via.placeholder.com/600x400"
+        buttonText="Browse Events"
+        onButtonClick={() => {
+          document.getElementById("events").scrollIntoView({ behavior: "smooth" });
+        }}
+      />
 
-      <section className="landpage-hero">
-        <h1 className="hero-title">Welcome to SEvent</h1>
-        <p className="hero-description">Your gateway to the best events around.</p>
-        <button className="hero-btn">Get Started</button>
-      </section>
-
-      <section className="landpage-features">
-        <h2 className="features-title">Our Features</h2>
-        <div className="features-list">
-          <div className="feature-item">
-            <img src="/path/to/feature-icon1.png" alt="Feature 1" className="feature-icon" />
-            <p className="feature-description">Feature 1 Description</p>
-          </div>
-          <div className="feature-item">
-            <img src="/path/to/feature-icon2.png" alt="Feature 2" className="feature-icon" />
-            <p className="feature-description">Feature 2 Description</p>
-          </div>
-          <div className="feature-item">
-            <img src="/path/to/feature-icon3.png" alt="Feature 3" className="feature-icon" />
-            <p className="feature-description">Feature 3 Description</p>
-          </div>
+      <section id="events" className="landing-page__events">
+        <h2 className="landing-page__events-title">Upcoming Events</h2>
+        <div className="landing-page__cards">
+          {dummyEvents.map((event) => (
+            <EventCard
+              key={event.id}
+              image={event.image}
+              title={event.title}
+              date={event.date}
+              location={event.location}
+              description={event.description}
+              onClick={() => {
+                alert(`Clicked event ${event.title}`);
+              }}
+            />
+          ))}
         </div>
       </section>
 
-      <footer className="landpage-footer">
-        <p>&copy; 2025 SEvent. All Rights Reserved.</p>
-      </footer>
+      <Footer />
     </div>
   );
-};
+}
 
-export default Landpage;
+export default LandingPage;
