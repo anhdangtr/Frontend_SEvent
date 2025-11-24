@@ -1,0 +1,81 @@
+/* General Navbar Styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1e3a8a; /* Blue background */
+  padding: 10px 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo-img {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.navbar-logo-text {
+  font-size: 24px;
+  font-weight: bold;
+  color: #f59e0b; /* Yellow text for the logo */
+}
+
+.navbar-links {
+  display: flex;
+  gap: 20px;
+}
+
+.navbar-links li {
+  list-style-type: none;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: #ffffff; /* White text */
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar-links a:hover {
+  color: #f59e0b; /* Yellow on hover */
+}
+
+.navbar-auth {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.navbar-auth-btn {
+  padding: 8px 16px;
+  background-color: #2563eb; /* Blue button */
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-auth-btn:hover {
+  background-color: #1d4ed8; /* Darker blue when hovered */
+}
+
+.navbar-signup-btn {
+  padding: 8px 16px;
+  background-color: #f59e0b; /* Yellow button */
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-signup-btn:hover {
+  background-color: #d97706; /* Darker yellow on hover */
+}

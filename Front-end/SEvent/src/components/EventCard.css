@@ -6,13 +6,20 @@
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* Hover nhẹ cho cả card cho “cảm giác bấm được” */
+.event-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
 }
 
 /* Banner */
 .event-card__banner-wrapper {
   position: relative;
   height: 170px;
-  background: #0f559f; /* fallback if no image */
+  background: #0f559f; /* fallback nếu không có hình */
 }
 
 .event-card__banner {
@@ -50,6 +57,21 @@
   justify-content: center;
   cursor: pointer;
   font-size: 18px;
+  color: #4b5563;
+  transition: transform 0.12s ease, box-shadow 0.12s ease,
+    background-color 0.12s ease, color 0.12s ease;
+}
+
+/* Hover effect cho nút sao */
+.event-card__star-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Trạng thái đã interested: nền vàng + icon trắng */
+.event-card__star-btn--active {
+  background: #fbbf24;
+  color: #ffffff;
 }
 
 /* Category label (Academic) */
@@ -124,5 +146,38 @@
 }
 
 .event-card__interested-star {
-  color: #6366f1;
+  color: #6366f1; /* màu mặc định khi chưa interested */
+  transition: color 0.15s ease;
+}
+
+/* Khi đã interested, đổi sao ở text thành vàng */
+.event-card__interested-star--active {
+  color: #fbbf24;
+}
+.event-card {
+  width: 360px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+
+  /* Thêm border trong suốt để khi hover đổi màu không bị nhảy layout */
+  border: 2px solid transparent;
+  box-sizing: border-box;
+
+  /* Thêm transition cho mượt hơn */
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease,
+    transform 0.15s ease;
+}
+
+/* Khi trỏ chuột vào card => hiện viền xanh */
+.event-card:hover,
+.event-card:focus-within {
+  border-color: #2563eb;              /* xanh dương */
+  box-shadow: 0 10px 22px rgba(37, 99, 235, 0.25);
+  transform: translateY(-2px);        /* optional: hơi nhích lên cho “mượt” */
 }

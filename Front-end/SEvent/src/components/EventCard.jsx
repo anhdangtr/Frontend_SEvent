@@ -1,58 +1,47 @@
 import React from "react";
-import "./EventCard.css";
+import "./Navbar.css";
+// Cách 1: nếu logo nằm trong src/assets
+import logo from "../assets/logo_white.png";
 
-const EventCard = ({
-  bannerSrc,
-  campusLabel = "UIT",
-  categoryLabel = "Academic",
-  month = "NOV",
-  day = "22",
-  title = "Netsec Day",
-  department = "Khoa Mạng Máy tính và Truyền thông",
-  time = "07:00 AM - 12:00 AM",
-  interestedCount = 10,
-}) => {
+const Navbar = () => {
   return (
-    <div className="event-card">
-      {/* Top image + labels */}
-      <div className="event-card__banner-wrapper">
-        {bannerSrc && (
-          <img src={bannerSrc} alt={title} className="event-card__banner" />
-        )}
-
-        {/* Campus label (UIT) */}
-        <div className="event-card__chip-campus">{campusLabel}</div>
-
-        {/* Star icon (bookmark) */}
-        <button className="event-card__star-btn" aria-label="Save event">
-          ☆
-        </button>
-
-        {/* Category label (Academic) */}
-        <div className="event-card__chip-category">{categoryLabel}</div>
-      </div>
-
-      {/* Bottom content */}
-      <div className="event-card__content">
-        {/* Date block */}
-        <div className="event-card__date">
-          <span className="event-card__date-month">{month}</span>
-          <span className="event-card__date-day">{day}</span>
+    <header className="nav">
+      <div className="nav__inner">
+        {/* Logo + tên web */}
+        <div className="nav__logo">
+          {/* Cách 1: nếu dùng import ở trên */}
+          <img src={logo} alt="Sevent logo" className="nav__logo-img" /> */
+          <span className="nav__logo-main">Sevent</span>
         </div>
 
-        {/* Text info */}
-        <div className="event-card__info">
-          <h3 className="event-card__title">{title}</h3>
-          <p className="event-card__department">{department}</p>
-          <p className="event-card__time">{time}</p>
-          <p className="event-card__interested">
-            • <span className="event-card__interested-star">★</span>{" "}
-            {interestedCount} interested
-          </p>
+        {/* Center links */}
+        <nav className="nav__links">
+          <a href="#home" className="nav__link nav__link--active">
+            Home
+          </a>
+          <a href="#events" className="nav__link">
+            Events
+          </a>
+          <a href="#about" className="nav__link">
+            About
+          </a>
+          <a href="#contact" className="nav__link">
+            Contact
+          </a>
+        </nav>
+
+        {/* Right side: Login + Sign Up */}
+        <div className="nav__auth">
+          <button className="nav__login" type="button">
+            Login
+          </button>
+          <button className="nav__signup" type="button">
+            Sign Up
+          </button>
         </div>
       </div>
-    </div>
+    </header>
   );
 };
 
-export default EventCard;
+export default Navbar;
