@@ -1,102 +1,106 @@
 /* Container flex 2 cột full height */
 .login-container {
-  display: flex;
-  height: 100vh;
-  width: 100vw;
-  background-color: #e9f6f2; /* subtle background behind panels */
+  display: flex; /* Uses flexbox to arrange child elements (left and right panels) */
+  height: 100vh; /* Makes the container full screen height */
+  width: 100vw; /* Makes the container full screen width */
+  background-color: #e9f6f2; /* Subtle light background color for the overall container */
 }
 
 /* Left panel: hiển thị bên trái */
 .login-left-panel {
-  width: 42%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  padding: 3.5rem 3rem;
-  color: white;
-  background: linear-gradient(180deg, #0088FF 0%, #108efc 100%); /* primary blue */
+  width: 42%; /* The left panel takes up 42% of the width of the container */
+  display: flex; /* Uses flexbox layout for child elements inside the left panel */
+  flex-direction: column; /* Arranges the child elements (logo, title) in a column */
+  justify-content: flex-start; /* Aligns child elements at the top of the panel */
+  align-items: flex-start; /* Aligns the child elements to the left side */
+  padding: 3.5rem 3rem; /* Adds space around the content inside the left panel */
+  color: white; /* Sets the text color to white for all content inside the left panel */
+  background: linear-gradient(180deg, #0088FF 0%, #108efc 100%); /* A blue gradient background for the left panel */
 }
 
 /* Logo */
 .login-logo {
-  width: 6.5rem;
-  margin-bottom: 1rem;
-  margin-left: 0.25rem;
-  margin-top: 0.5rem;
+  width: 6.5rem; /* Sets the logo width to 6.5rem */
+  margin-bottom: 1rem; /* Adds a space below the logo */
+  margin-left: 0.25rem; /* Adds a small space on the left of the logo */
+  margin-top: 0.5rem; /* Adds a small space above the logo */
 }
 
 /* Title */
 .login-title {
-  font-size: 2.1rem;
-  font-weight: 700;
-  line-height: 1.05;
-  margin-top: 0.25rem;
+  font-size: 2.1rem; /* Sets the font size of the title */
+  font-weight: 700; /* Makes the title bold */
+  line-height: 1.05; /* Controls the line height to adjust the spacing between lines */
+  margin-top: 0.25rem; /* Adds a small space above the title */
 }
 
 /* Right panel: chiếm 1/2 bên phải */
 .login-right-panel {
-  width: 58%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #d0e6f9;
+  width: 58%; /* The right panel takes up 58% of the container's width */
+  display: flex; /* Uses flexbox for the layout of the right panel content */
+  justify-content: center; /* Centers the content horizontally inside the right panel */
+  align-items: center; /* Centers the content vertically inside the right panel */
+  background-color: #d0e6f9; /* Light blue background color for the right panel */
 }
 
+/* Card inside the right panel */
 .login-right-panel .right-card {
-  background: white;
-  width: 100%;
-  max-width: 520px;
-  padding: 2.25rem;
-  border-top-left-radius: 24px;
-  border-bottom-left-radius: 24px;
-  box-shadow: 0 6px 18px rgba(10, 10, 10, 0.06);
+  background: white; /* White background for the card */
+  width: 100%; /* Makes the card take up the full width of the right panel */
+  max-width: 520px; /* Limits the maximum width of the card to 520px */
+  padding: 2.25rem; /* Adds padding around the content inside the card */
+  border-top-left-radius: 24px; /* Rounds the top left corners of the card */
+  border-bottom-left-radius: 24px; /* Rounds the bottom left corners of the card */
+  border-top-right-radius: 24px; /* Slightly rounds the top right corner of the card */
+  border-bottom-right-radius: 24px; /* Slightly rounds the bottom right corner of the card */
+  box-shadow: 0 6px 18px rgba(10, 10, 10, 0.06); /* Adds a subtle shadow effect to the card */
 }
+
 
 /* Form styling */
 .login-form {
-  width: 100%;
-  padding: 0.25rem 0.5rem;
+  width: 100%; /* Makes the form take up the full width of its container */
+  padding: 0.25rem 0.5rem; /* Adds padding around the form inputs */
 }
 
 /* Label trên input */
 .login-form label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-  text-align: left;
+  display: block; /* Makes the label block-level, taking up the full width */
+  margin-bottom: 0.5rem; /* Adds space below the label */
+  font-weight: 500; /* Sets the label text to a medium weight */
+  text-align: left; /* Aligns the label text to the left */
 }
 
 /* Input box */
 .login-form input {
-  width: 100%;
-  padding: 0.9rem 1rem;
-  margin-bottom: 1.25rem;
-  border: 1px solid #d7d7d7;
-  border-radius: 10px;
-  font-size: 1rem;
-  box-sizing: border-box;
+  width: 100%; /* Makes the input box take up the full width of its container */
+  padding: 0.9rem 1rem; /* Adds padding inside the input box */
+  margin-bottom: 1.25rem; /* Adds space below the input box */
+  border: 1px solid #d7d7d7; /* Sets a light grey border around the input box */
+  border-radius: 10px; /* Rounds the corners of the input box */
+  font-size: 1rem; /* Sets the font size inside the input box */
+  box-sizing: border-box; /* Ensures padding and border are included in the input's width/height calculations */
 }
 
 /* Button Login */
 .login-form button {
-  width: 100%;
-  padding: 0.9rem;
-  background-color: #2D2C3C;
-  color: white;
-  font-weight: 600;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 1rem;
-  margin-top: 0.5rem;
+  width: 100%; /* Makes the button take up the full width of the form */
+  padding: 0.9rem; /* Adds padding inside the button */
+  background-color: #2D2C3C; /* Dark grey background color for the button */
+  color: white; /* White text color for the button */
+  font-weight: 600; /* Makes the button text bold */
+  border: none; /* Removes the border from the button */
+  border-radius: 10px; /* Rounds the corners of the button */
+  cursor: pointer; /* Changes the cursor to a pointer when hovered over the button */
+  font-size: 1rem; /* Sets the font size of the button text */
+  margin-top: 0.5rem; /* Adds space above the button */
 }
 
 /* Heading của form */
 .login-heading {
-  color: #2D2C3C;
-  font-size: 1.4rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  text-align: left;
+  color: #2D2C3C; /* Sets the text color to dark grey for the heading */
+  font-size: 1.4rem; /* Sets the font size for the heading */
+  font-weight: 700; /* Makes the heading bold */
+  margin-bottom: 1rem; /* Adds space below the heading */
+  text-align: left; /* Aligns the heading text to the left */
 }

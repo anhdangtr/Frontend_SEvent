@@ -1,32 +1,60 @@
-.contact-container {
-  padding: 20px;
-  background-color: #f5f5f5;
+/* PAGE LAYOUT */
+.contact-page {
+  width: 100%;
+  height: 100vh;
+  width: 100vw;
+  background: #f5f7fb;
+  padding-top: 0px; /* space below navbar */
   color: #333;
-  margin-top: 80px; /* Adjust for the height of the Navbar */
+  font-family: "Inter", sans-serif;
 }
 
-.contact-header {
+/* HERO SECTION */
+.contact-hero {
   text-align: center;
-  margin-bottom: 40px;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #004aad, #007bff);
+  color: white;
 }
 
-.contact-header h1 {
-  font-size: 2.5rem;
-  color: #004aad;
+.contact-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  animation: fadeInDown 0.8s ease;
 }
 
-.contact-header p {
+.contact-hero p {
   font-size: 1.2rem;
-  color: #666;
+  opacity: 0.9;
+  animation: fadeInUp 1s ease;
 }
 
+/* MAIN CONTENT WRAPPER */
+.contact-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  margin: 50px auto;
+  padding: 0 20px;
+  max-width: 1200px;
+}
+
+/* CONTACT FORM */
 .contact-form {
-  max-width: 600px;
-  margin: 0 auto;
-  background-color: white;
+  flex: 1;
+  background: white;
   padding: 40px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1.2s ease;
+}
+
+.contact-form h2 {
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  color: #004aad;
+  text-align: center;
 }
 
 .form-group {
@@ -35,45 +63,68 @@
 
 .form-group label {
   font-size: 1.1rem;
-  color: #333;
+  margin-bottom: 6px;
   display: block;
-  margin-bottom: 8px;
 }
 
 .form-group input,
 .form-group textarea {
   width: 100%;
-  padding: 12px;
-  border: 2px solid #ddd;
-  border-radius: 8px;
+  padding: 14px;
+  border: 2px solid #dfe6f1;
+  border-radius: 10px;
   font-size: 1rem;
-  color: #333;
+  outline: none;
+  transition: border-color 0.25s ease, transform 0.2s ease;
 }
 
-.form-group textarea {
-  resize: vertical;
-  height: 150px;
+/* Focus glow */
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #004aad;
+  transform: scale(1.01);
 }
 
+/* SUBMIT BUTTON */
 .submit-btn {
   width: 100%;
-  padding: 12px 20px;
-  background-color: #004aad;
+  padding: 14px;
+  background: #004aad;
   color: white;
-  border: none;
-  border-radius: 8px;
   font-size: 1.1rem;
+  border-radius: 10px;
+  border: none;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: transform 0.25s ease, background 0.25s ease;
 }
 
 .submit-btn:hover {
-  background-color: #003a8c;
+  transform: scale(1.05);
+  background: #003a8c;
 }
 
+/* IMAGE BLOCK */
+.contact-image {
+  flex: 1;
+  animation: fadeIn 1.3s ease;
+}
+
+.contact-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  transition: transform 0.35s ease;
+}
+
+.contact-image img:hover {
+  transform: scale(1.03);
+}
+
+/* SOCIAL MEDIA */
 .social-media {
-  text-align: center;
   margin-top: 40px;
+  text-align: center;
 }
 
 .social-media h2 {
@@ -84,21 +135,41 @@
 .social-icons {
   display: flex;
   justify-content: center;
-  gap: 20px;
-}
-
-.social-icons a {
-  display: inline-block;
+  gap: 25px;
+  margin-bottom: 50px;
 }
 
 .social-icons img {
-  width: 40px;
-  height: 40px;
-  object-fit: cover;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .social-icons img:hover {
-  transform: scale(1.1);
+  transform: scale(1.15);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .contact-wrapper {
+    flex-direction: column;
+  }
 }

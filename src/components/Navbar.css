@@ -1,143 +1,166 @@
-/* Navbar styling (Navbar.css) */
-
-/* General navbar container */
+/* NAVBAR */
 .navbar {
-  width: 100%; /* Full width */
-  background-color: #0088ff; /* Top bar color */
+  width: 100%;
+  background-color: #0088ff;
   color: white;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); /* Shadow below the navbar */
-  display: flex; /* Use Flexbox to align items */
-  justify-content: space-between; /* Align logo on the left and buttons on the right */
-  padding: 12px 20px; /* Padding inside the navbar */
-  align-items: center; /* Vertically center content */
-  height: 80px; /* Set a fixed height for the navbar */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  display: flex;
+  justify-content: center;
+  padding: 12px 20px;
+  height: 80px;
 }
 
-/* Navbar container to center content and apply padding */
 .navbar-container {
-  display: flex; /* Use flexbox */
-  align-items: center; /* Vertically center the content */
-  justify-content: space-between; /* Push logo to the left and buttons to the right */
-  width: 100%; /* Ensure the container takes up the full width */
-  max-width: 1200px; /* Optional: limit the width */
-  margin: 0 auto; /* Center the container */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
 }
 
-/* Navbar logo (aligned left) */
-.navbar-logo {
-  display: flex; /* Ensure it's a flex container */
-  align-items: center; /* Center logo vertically */
+/* LOGO */
+.logo-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: white;
 }
 
 .navbar-logo img {
-  height: 50px; /* Adjust logo height */
-  width: auto;  /* Maintain aspect ratio */
+  height: 50px;
 }
 
-/* Navbar links container (centered within the navbar) */
+.logo-text {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+/* NAV LINKS */
 .nav-links {
-  list-style: none; /* Remove default list styling */
-  display: flex; /* Use flex to align links horizontally */
-  gap: 36px; /* Space between links */
+  list-style: none;
+  display: flex;
+  gap: 40px;
   margin: 0;
   padding: 0;
 }
 
-/* Styling for each individual nav link */
-.nav-link {
-  background: transparent; /* Transparent background */
-  border: none; /* No border */
-  color: white; /* White text */
-  font-weight: 700; /* Bold text */
-  font-size: 16px; /* Set font size */
-  cursor: pointer; /* Pointer cursor */
-  padding: 6px 8px; /* Padding inside each link */
-  position: relative; /* Required for the active link underline */
-  transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition for hover effect */
-}
-
-/* Active navbar link underline (smaller and closer to the text) */
-.nav-link.active::after {
-  content: ''; /* Create an underline */
-  position: absolute; /* Position it absolutely */
-  left: 0;
-  right: 0;
-  bottom: -4px; /* Closer to the text */
-  height: 2px; /* Smaller underline */
-  background: #FFE047; /* Yellow underline */
-  border-radius: 2px; /* Rounded corners for the underline */
-}
-
+/* Single Nav Link */
 .nav-link-item {
-  color: white;              /* Default white */
-  font-size: 16px;
-  transition: all 0.25s ease;
-  padding: 6px 10px;
-  display: inline-block;
-}
-
-/* Hover effect */
-.nav-link-item:hover {
-  transform: scale(1.12);    /* Slight enlarge */
-  color: #ffea70;            /* Soft yellow on hover */
-}
-
-/* Active (currently selected page) */
-.nav-link-item.active {
-  color: #ffea70;            /* Highlight color for active item */
+  color: white;
+  font-size: 18px;
   font-weight: 600;
-  transform: scale(1.15);    /* Slightly bigger than hover */
-  border-bottom: 3px solid #ffea70; 
-  padding-bottom: 4px;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  padding: 6px 4px;
+  transition: all 0.25s ease;
 }
 
-/* Hover effect: Highlight and enlarge text */
-.nav-link:hover {
-  color: #FFE047; /* Highlight text with yellow */
-  transform: scale(1.1); /* Slightly enlarge the text */
+/* HOVER EFFECT */
+.nav-link-item:hover {
+  transform: scale(1.15);
+  color: #ffed71;
 }
 
-/* Login and Sign Up buttons container (aligned right) */
+/* ACTIVE LINK */
+.nav-link-item.active {
+  color: #ffed71;
+  transform: scale(1.17);
+}
+
+/* ACTIVE & HOVER UNDERLINE */
+.nav-link-item.active::after,
+.nav-link-item:hover::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 3px;
+  background: #ffed71;
+  border-radius: 2px;
+  transition: width 0.3s ease-in-out;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+
+  /* underline full width */
+  width: 100%;
+  height: 3px;
+
+  /* màu gạch */
+  background-color: gold;
+
+  /* hiệu ứng mặc định: ẩn + co lại */
+  opacity: 0;
+  transform: scaleX(0);
+
+  /* cho hiệu ứng trượt từ trái sang phải */
+  transform-origin: left;
+
+  /* transition mượt hơn */
+  transition:
+    transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+    opacity 0.3s ease;
+}
+
+/* hover → hiện underline */
+.nav-link:hover::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+/* active → luôn giữ underline */
+.nav-link.active::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+
+/* BUTTON AREA */
 .auth-buttons {
-  display: flex; /* Use flex to arrange buttons horizontally */
-  gap: 12px; /* Space between the buttons */
-  align-items: center; /* Center the buttons vertically */
+  display: flex;
+  gap: 12px;
 }
 
-/* Styling for Login button */
+/* LOGIN BUTTON */
 .login-btn {
-  background: #004AAD; /* Blue background for login button */
-  color: white; /* White text */
-  padding: 8px 14px; /* Padding inside the button */
-  border-radius: 8px; /* Rounded corners */
-  border: none; /* Remove the border */
-  font-weight: 700; /* Bold text */
-  cursor: pointer; /* Pointer cursor */
-  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease; /* Add transition for hover effect */
+  background: #004aad;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
 }
 
-/* Hover effect for the Login button */
 .login-btn:hover {
-  background-color: #003A8C; /* Darken blue on hover */
-  transform: scale(1.05); /* Slightly enlarge the button */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Add shadow */
+  background-color: #003a8c;
+  transform: scale(1.07);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Styling for SignUp button */
+/* SIGNUP BUTTON */
 .signup-btn {
-  background: #FFE047; /* Yellow background for sign-up button */
-  color: white; /* White text */
-  padding: 8px 14px; /* Padding inside the button */
-  border-radius: 8px; /* Rounded corners */
-  border: none; /* Remove the border */
-  font-weight: 700; /* Bold text */
-  cursor: pointer; /* Pointer cursor */
-  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease; /* Add transition for hover effect */
+  background: #ffe047;
+  color: #003b75;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
 }
 
-/* Hover effect for the SignUp button */
 .signup-btn:hover {
-  background-color: #FFBB33; /* Darken yellow on hover */
-  transform: scale(1.05); /* Slightly enlarge the button */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Add shadow */
+  background-color: #ffbb33;
+  transform: scale(1.07);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
 }

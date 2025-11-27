@@ -49,45 +49,73 @@
   margin: 20px;
 }
 
+/* Category Label */
 .category-label {
   font-size: 24px;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 8px;
   display: block;
+  text-align: left; /* stays on the left */
 }
 
+/* Wrapper so label stays above categories */
+.category-wrapper {
+  display: flex;
+  flex-direction: column; 
+  align-items: flex-start; /* left side */
+  width: 100%;
+}
+
+/* Category Options */
 .category-options {
   display: flex;
-  justify-content: center; /* Center align categories */
-  gap: 20px; /* Spacing between each category */
-  flex-wrap: wrap; /* Allow categories to wrap to a new line */
-  margin-top: 10px; /* Space between the label and category options */
+  justify-content: flex-start; /* align options under the label */
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 5px;
 }
 
-
+/* Each Category */
 .category-option {
   display: flex;
   flex-direction: column;
   align-items: center;
   cursor: pointer;
-  padding: 10px;
-  border-radius: 8px;
-  transition: background-color 0.3s ease;
-  width: 120px; /* Fixed width for each category */
-  text-align: center; /* Center the text */
+  padding: 12px;
+  border-radius: 10px;
+  width: 120px;
+  text-align: center;
+  transition: 
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border 0.25s ease,
+    background-color 0.25s ease;
+  border: 2px solid transparent; /* default no outline */
 }
 
+/* Hover → bigger + blue outline */
+.category-option:hover {
+  transform: scale(1.07);
+  border: 2px solid #1e90ff; /* blue outline */
+  background-color: #f0f8ff; /* subtle light-blue background */
+}
+
+/* Active (clicked) style */
 .category-option.active {
-  background-color: #e0e0e0; /* Highlight active category */
+  transform: scale(1.08);
+  border: 2px solid #1e90ff;
+  background-color: #e8f3ff; /* slightly darker blue than hover */
 }
 
+/* Icon */
 .category-option img {
-  width: 80px; /* Set the size of the icons */
+  width: 80px;
   height: 80px;
-  margin-bottom: 10px; /* Space between icon and text */
-  border-radius: 50%; /* Make image circular */
+  margin-bottom: 10px;
+  border-radius: 50%;
 }
 
+/* Name */
 .category-name {
   font-size: 16px;
   font-weight: 600;
@@ -113,17 +141,39 @@
 
 /* ====== Blue Hero Under Navbar ====== */
 .hero-section {
-  background-image: url('src/assets/Event_UITEnglishConest.jpg'); /* Specify the path to your image */
-  background-size: cover; /* Make sure the image covers the entire section */
-  background-position: center center; /* Center the image */
+  position: relative; /* Đảm bảo phần tử có thể chứa overlay */
+  background-image: url('src/assets/Event_UITEnglishConest.jpg'); /* Đường dẫn đến ảnh nền */
+  background-size: cover; /* Đảm bảo ảnh nền phủ toàn bộ section */
+  background-position: center center; /* Căn giữa ảnh */
   color: white;
   padding: 64px 20px;
   text-align: center;
-  height: 100vh; /* Ensure the section covers the full viewport height */
+  height: 100vh; /* Đảm bảo section chiếm đầy chiều cao viewport */
 }
 
+.hero-section::after {
+  content: ''; /* Tạo một phần tử không chứa nội dung */
+  position: absolute; /* Đặt phần tử phủ lên trên */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Màu đen mờ với độ trong suốt 50% */
+  z-index: 1; /* Đảm bảo lớp phủ nằm trên ảnh nền nhưng dưới nội dung */
+}
+
+.hero-section * {
+  position: relative;
+  z-index: 2; /* Đảm bảo văn bản nằm trên lớp phủ */
+}
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
 
 .hero-content h1 {
+  color: #FFBB33 (247, 255, 15, 0.89);
   font-size: 36px;
   font-weight: 800;
   margin-bottom: 12px;
@@ -168,61 +218,9 @@
   padding: 0 20px;
 }
 
-/* ============ Hero Section ============ */
-.hero-section {
-  background:#004AAD;
-  color: white;
-  padding: 80px 20px;
-  text-align: center;
-}
-
-.hero-content h1 {
-  font-size: 48px;
-  font-weight: 700;
-  margin-bottom: 16px;
-}
-
-.hero-content p {
-  font-size: 18px;
-  margin-bottom: 40px;
-  opacity: 0.9;
-}
-
-/* Search Form */
-.search-form {
-  display: flex;
-  gap: 10px;
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-.search-input {
-  flex: 1;
-  padding: 14px 20px;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  outline: none;
-  transition: all 0.3s ease;
-}
-
-.search-input:focus {
-  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.3);
-}
-
-.search-btn {
-  padding: 14px 32px;
-  background-color: #ff6b6b;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
 .search-btn:hover {
   background-color: #ff5252;
+  color: #FFFFFF;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
 }

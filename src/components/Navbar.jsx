@@ -1,71 +1,61 @@
-import React, { useState } from 'react';
-import logoImage from '../assets/official_logo_white.png'; // Adjust the path to your logo image 
-import { Link, useLocation } from 'react-router-dom';  // Import Link and useLocation from react-router-dom
-import './Navbar.css'; // Import the Navbar CSS
+import React from "react";
+import { Link, useLocation } from "react-router-dom";
+import "./Navbar.css";
 
-function Navbar() {
-  const [activeNav, setActiveNav] = useState('home'); // Track the active navigation state
-  const location = useLocation(); // Get the current URL location
-
-  // Update the active link based on the current URL
-  React.useEffect(() => {
-    const path = location.pathname; // Get current path from location
-    if (path === "/") {
-      setActiveNav('home');
-    } else if (path === "/about") {
-      setActiveNav('about');
-    } else if (path === "/contact") {
-      setActiveNav('contact');
-    }
-  }, [location]);
+const Navbar = () => {
+  const location = useLocation();
+  const currentPath = location.pathname;
 
   return (
-   <div className="navbar">
+    <nav className="navbar">
       <div className="navbar-container">
-        {/* Logo on the left */}
+
+        {/* LOGO – click to Go Home */}
         <div className="navbar-logo">
-          <img src={logoImage} alt="Logo" />
+          <Link to="/" className="logo-link">
+            <img src="src/assets/official_logo_white.png" alt="Logo" />
+          </Link>
         </div>
 
-        {/* Navbar Links */}
+        {/* Centered Nav Links */}
         <ul className="nav-links">
-          <li className="nav-link">
+          <li>
             <Link
               to="/"
-              className={`nav-link-item ${activeNav === 'home' ? 'active' : ''}`}
-              onClick={() => setActiveNav('home')}
+              className={`nav-link-item ${currentPath === "/" ? "active" : ""}`}
             >
               Home
             </Link>
           </li>
-          <li className="nav-link">
+
+          <li>
             <Link
               to="/about"
-              className={`nav-link-item ${activeNav === 'about' ? 'active' : ''}`}
-              onClick={() => setActiveNav('about')}
+              className={`nav-link-item ${currentPath === "/about" ? "active" : ""}`}
             >
               About
             </Link>
           </li>
-          <li className="nav-link">
+
+          <li>
             <Link
               to="/contact"
-              className={`nav-link-item ${activeNav === 'contact' ? 'active' : ''}`}
-              onClick={() => setActiveNav('contact')}
+              className={`nav-link-item ${currentPath === "/contact" ? "active" : ""}`}
             >
               Contact
             </Link>
           </li>
         </ul>
 
-        {/* Authentication Buttons */}
+        {/* Login / Signup Buttons */}
         <div className="auth-buttons">
           <button className="login-btn">Log In</button>
           <button className="signup-btn">Sign Up</button>
         </div>
+
       </div>
-    </div>
+    </nav>
   );
-}
+};
 
 export default Navbar;

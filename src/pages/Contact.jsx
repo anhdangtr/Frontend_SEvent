@@ -1,92 +1,63 @@
-import React, { useState } from "react";
-import "./Contact.css"; // Import the Contact page CSS
+import React from "react";
+import "./Contact.css";
+import NavBar from "../components/Navbar";
 
 function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert("Message sent successfully!");
-    setFormData({ name: "", email: "", message: "" });
-  };
-
   return (
-    <div className="contact-container">
-      <div className="contact-header">
+    <div className="contact-page">
+
+      {/* NAVBAR */}
+      <NavBar />
+
+      {/* HERO SECTION */}
+      <section className="contact-hero">
         <h1>Contact Us</h1>
-        <p>If you have any questions or inquiries, feel free to reach out.</p>
-      </div>
+        <p>We'd love to hear from you. Let’s connect!</p>
+      </section>
 
-      <div className="contact-form">
-        <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label htmlFor="name">Your Name</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleInputChange}
-              required
-            />
-          </div>
+      {/* MAIN CONTENT */}
+      <div className="contact-wrapper">
 
-          <div className="form-group">
-            <label htmlFor="email">Your Email</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleInputChange}
-              required
-            />
-          </div>
+        {/* CONTACT FORM */}
+        <div className="contact-form">
+          <h2>Send Us a Message</h2>
 
-          <div className="form-group">
-            <label htmlFor="message">Your Message</label>
-            <textarea
-              id="message"
-              name="message"
-              value={formData.message}
-              onChange={handleInputChange}
-              required
-            ></textarea>
-          </div>
+          <form>
+            <div className="form-group">
+              <label>Your Name</label>
+              <input type="text" placeholder="Enter your name" required />
+            </div>
 
-          <button type="submit" className="submit-btn">
-            Send Message
-          </button>
-        </form>
-      </div>
+            <div className="form-group">
+              <label>Email Address</label>
+              <input type="email" placeholder="Enter your email" required />
+            </div>
 
-      {/* Social Media Links Section */}
-      <div className="social-media">
-        <h2>Follow Us</h2>
-        <div className="social-icons">
-          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-            <img src="https://via.placeholder.com/40?text=FB" alt="Facebook" />
-          </a>
-          <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
-            <img src="https://via.placeholder.com/40?text=TW" alt="Twitter" />
-          </a>
-          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-            <img src="https://via.placeholder.com/40?text=IG" alt="Instagram" />
-          </a>
-          <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
-            <img src="https://via.placeholder.com/40?text=LI" alt="LinkedIn" />
-          </a>
+            <div className="form-group">
+              <label>Message</label>
+              <textarea placeholder="Write your message..." required></textarea>
+            </div>
+
+            <button type="submit" className="submit-btn">Send Message</button>
+          </form>
+        </div>
+
+        {/* CONTACT IMAGE SECTION */}
+        <div className="contact-image">
+          <img src="src/assets/Event_GHK0.jpg" alt="Contact" />
         </div>
       </div>
+
+      {/* SOCIAL MEDIA SECTION */}
+      <div className="social-media">
+        <h2>Find Us on Social Media</h2>
+        <div className="social-icons">
+          <a href="#"><img src="src/assets/FBlog.png" alt="Facebook" /></a>
+          <a href="#"><img src="src/assets/Youtube_logo.png" alt="YouTube" /></a>
+          <a href="#"><img src="src/assets/instagramlogo.webp" alt="Instagram" /></a>
+        </div>
+      </div>
+
     </div>
   );
 }

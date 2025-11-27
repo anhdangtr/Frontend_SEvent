@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import EventCardTest from "../components/EventCardTest";
+import Navbar from "../components/Navbar";
 import { useNavigate } from "react-router-dom";
 import "./PageTest.css"; // Ensure you import the CSS
 
@@ -101,19 +102,18 @@ const PageTest = () => {
 
   return (
     <div className="landpage-container">
-      {/* No need to include the Navbar here, it is globally imported in App.js */}
-      
+      <Navbar />
       {/* Hero Section */}
       <section className="hero-section">
         <div className="hero-content">
           <h1>Where your eventure starts!</h1>
           <p>Search and join the events you like</p>
 
-          {/* Search Bar */}
+          {/* Search Bar */} 
           <form className="search-form" onSubmit={handleSearch}>
             <input
               type="text"
-              placeholder="Event's name, location, ... or any keyword"
+              placeholder="Enter keywords ..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               className="search-input"
