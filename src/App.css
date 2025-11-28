@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* Import Poppins font from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
@@ -8,6 +9,10 @@
 
 #root {
   width: 100%;
+=======
+#root {
+  max-width: 1280px;
+>>>>>>> d6dfb7fcc22a852840caf1f375a137360c530d83
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
@@ -19,11 +24,17 @@
   will-change: filter;
   transition: filter 300ms;
 }
+<<<<<<< HEAD
 
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
 
+=======
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+>>>>>>> d6dfb7fcc22a852840caf1f375a137360c530d83
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
@@ -50,6 +61,7 @@
 .read-the-docs {
   color: #888;
 }
+<<<<<<< HEAD
 
 /* General App Layout */
 .app {
@@ -120,3 +132,5 @@ img {
   max-width: 100%;
   height: auto;
 }
+=======
+>>>>>>> d6dfb7fcc22a852840caf1f375a137360c530d83
